@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PR LANCHES - Cardápio Online</title>
+    <title>PR LANCHES - Cardápio Completo</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        html { scroll-behavior: smooth; } /* Faz o deslize ser suave */
+        html { scroll-behavior: smooth; }
 
         * {
             margin: 0;
@@ -15,65 +15,73 @@
             font-family: 'Arial', sans-serif;
         }
 
-        body { background-color: #f9f9f9; padding-top: 80px; }
+        body { 
+            /* Fundo amarelo claro com padrão repetido */
+            background-color: #fff9e6;
+            background-image: url("https://www.transparenttextures.com/patterns/food.png"); /* Padrão sutil de comida */
+            padding-top: 90px;
+        }
 
-        /* Cabeçalho Fixo */
+        /* Cabeçalho */
         header {
             position: fixed;
             top: 0;
             width: 100%;
-            height: 70px;
+            height: 80px;
             background: white;
-            border-bottom: 2px solid #000;
+            border-bottom: 3px solid #000;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 20px;
+            padding: 0 30px;
             z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
-        .menu-btn {
-            font-size: 30px;
-            cursor: pointer;
-            padding: 5px;
+        .menu-btn { font-size: 35px; cursor: pointer; }
+        .logo { font-size: 2rem; font-weight: bold; font-style: italic; letter-spacing: 2px; }
+        
+        .pizza-header {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
         }
 
-        .logo { font-size: 1.8rem; font-weight: bold; font-style: italic; }
-
-        /* Menu Lateral (Drawer) */
+        /* Menu Lateral Retrátil */
         aside {
             position: fixed;
-            left: -250px; /* Escondido por padrão */
-            top: 70px;
+            left: -260px;
+            top: 80px;
             width: 250px;
-            height: calc(100% - 70px);
+            height: calc(100% - 80px);
             background: #fff;
-            border-right: 2px solid #000;
-            transition: 0.3s;
+            border-right: 3px solid #000;
+            transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             display: flex;
             flex-direction: column;
             padding: 20px;
-            gap: 10px;
+            gap: 12px;
             z-index: 999;
         }
 
-        aside.active { left: 0; } /* Classe que o JS vai ativar */
+        aside.active { left: 0; }
 
         aside a {
             text-decoration: none;
             color: black;
-            border: 1px solid #000;
-            padding: 10px;
+            border: 2px solid #000;
+            padding: 12px;
             text-align: center;
             font-weight: bold;
-            transition: background 0.2s;
+            background: #fff;
+            transition: 0.2s;
         }
 
-        aside a:hover { background: #eee; }
+        aside a:hover { background: #ffe082; transform: scale(1.05); }
 
-        /* Conteúdo do Cardápio */
+        /* Container do Cardápio */
         .container {
-            max-width: 800px;
+            max-width: 700px;
             margin: 0 auto;
             padding: 20px;
         }
@@ -81,54 +89,59 @@
         .section-title {
             background: #000;
             color: #fff;
-            padding: 10px;
-            margin: 40px 0 20px 0;
+            padding: 12px;
+            margin: 50px 0 25px 0;
             text-transform: uppercase;
+            text-align: center;
+            border-radius: 5px;
         }
 
-        /* Itens do Cardápio - 1 por linha */
+        /* Estilo dos Itens */
         .cardapio-item {
             display: flex;
             align-items: center;
             background: white;
-            border: 1px solid #ddd;
-            margin-bottom: 15px;
+            border: 2px solid #000;
+            margin-bottom: 20px;
             padding: 15px;
-            border-radius: 8px;
+            border-radius: 10px;
             gap: 20px;
+            box-shadow: 5px 5px 0px rgba(0,0,0,0.1);
         }
 
         .cardapio-item img {
-            width: 100px;
-            height: 100px;
+            width: 110px;
+            height: 110px;
             object-fit: cover;
             border-radius: 8px;
-            border: 1px solid #ccc;
+            border: 1px solid #ddd;
         }
 
         .item-info { flex-grow: 1; }
-        .item-name { font-size: 1.2rem; font-weight: bold; }
-        .item-price { font-size: 1.1rem; color: #d32f2f; font-weight: bold; margin-top: 5px; }
+        .item-name { font-size: 1.3rem; font-weight: bold; color: #333; }
+        .item-price { font-size: 1.2rem; color: #e67e22; font-weight: 900; margin-top: 8px; }
 
         /* Rodapé WhatsApp */
         footer {
-            margin: 50px auto;
-            max-width: 600px;
-            border: 2px solid #000;
-            padding: 15px;
+            margin: 60px auto;
+            max-width: 500px;
+            border: 3px solid #000;
+            padding: 20px;
             display: flex;
             justify-content: center;
             align-items: center;
             gap: 15px;
             background: white;
+            border-radius: 50px;
+            margin-bottom: 100px;
         }
 
-        .fa-whatsapp { color: #25d366; font-size: 35px; }
-        .zap-text { font-size: 1.2rem; font-weight: bold; }
+        .fa-whatsapp { color: #25d366; font-size: 40px; }
+        .zap-text { font-size: 1.3rem; font-weight: bold; }
 
-        @media (max-width: 500px) {
+        @media (max-width: 600px) {
             .cardapio-item { flex-direction: column; text-align: center; }
-            .logo { font-size: 1.2rem; }
+            .logo { font-size: 1.4rem; }
         }
     </style>
 </head>
@@ -137,12 +150,13 @@
     <header>
         <div class="menu-btn" onclick="toggleMenu()">☰</div>
         <div class="logo">PR LANCHES</div>
-        <div style="width: 40px; height: 40px; background: yellow; border-radius: 50%; border: 1px solid #000;"></div>
+        <img src="https://cdn-icons-png.flaticon.com/512/3595/3595455.png" alt="Pizza" class="pizza-header">
     </header>
 
     <aside id="sidebar">
         <a href="#entradas" onclick="toggleMenu()">Entradas</a>
-        <a href="#lanches" onclick="toggleMenu()">Lanches</a>
+        <a href="#hamburgueres" onclick="toggleMenu()">Hambúrgueres</a>
+        <a href="#hotdogs" onclick="toggleMenu()">Hot-Dogs</a>
         <a href="#pasteis" onclick="toggleMenu()">Pastéis</a>
         <a href="#bebidas" onclick="toggleMenu()">Bebidas</a>
     </aside>
@@ -152,56 +166,146 @@
         <h2 class="section-title" id="entradas">Entradas</h2>
         
         <div class="cardapio-item">
-            <img src="https://images.unsplash.com/photo-1580476262798-bddd9f4b7369?q=80&w=200&auto=format&fit=crop" alt="Peixe">
+            <img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?q=80&w=300" alt="Peixe">
             <div class="item-info">
-                <div class="item-name">Peixe Frito (400g)</div>
+                <div class="item-name">Peixe (400g)</div>
                 <div class="item-price">28 R$</div>
             </div>
         </div>
 
         <div class="cardapio-item">
-            <img src="https://images.unsplash.com/photo-1573015084245-51d99eead3bd?q=80&w=200&auto=format&fit=crop" alt="Batata">
+            <img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?q=80&w=300" alt="Peixe">
             <div class="item-info">
-                <div class="item-name">Batatas Fritas (250g)</div>
+                <div class="item-name">Peixe (700g)</div>
+                <div class="item-price">46 R$</div>
+            </div>
+        </div>
+
+        <div class="cardapio-item">
+            <img src="https://images.unsplash.com/photo-1630384060421-cb20d0e0649d?q=80&w=300" alt="Batata">
+            <div class="item-info">
+                <div class="item-name">Batatas (250g)</div>
                 <div class="item-price">16 R$</div>
             </div>
         </div>
 
-        <h2 class="section-title" id="lanches">Lanches</h2>
+        <div class="cardapio-item">
+            <img src="https://images.unsplash.com/photo-1630384060421-cb20d0e0649d?q=80&w=300" alt="Batata">
+            <div class="item-info">
+                <div class="item-name">Batatas (450g)</div>
+                <div class="item-price">25 R$</div>
+            </div>
+        </div>
+
+        <h2 class="section-title" id="hamburgueres">Hambúrgueres</h2>
         
         <div class="cardapio-item">
-            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=200&auto=format&fit=crop" alt="Hambúrguer">
+            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=300" alt="X-Burguer">
             <div class="item-info">
-                <div class="item-name">X-Burguer Tradicional</div>
+                <div class="item-name">X-Burguer</div>
                 <div class="item-price">10 R$</div>
             </div>
         </div>
 
         <div class="cardapio-item">
-            <img src="https://images.unsplash.com/photo-1550317138-10000687ad32?q=80&w=200&auto=format&fit=crop" alt="Hot Dog">
+            <img src="https://images.unsplash.com/photo-1553979459-d2229ba7433b?q=80&w=300" alt="X-Bacon">
             <div class="item-info">
-                <div class="item-name">Hot Bacon Especial</div>
+                <div class="item-name">X-Bacon</div>
+                <div class="item-price">15 R$</div>
+            </div>
+        </div>
+
+        <div class="cardapio-item">
+            <img src="https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?q=80&w=300" alt="X-Salada">
+            <div class="item-info">
+                <div class="item-name">X-Salada</div>
+                <div class="item-price">12 R$</div>
+            </div>
+        </div>
+
+        <h2 class="section-title" id="hotdogs">Hot-Dogs</h2>
+        
+        <div class="cardapio-item">
+            <img src="https://images.unsplash.com/photo-1612392062631-94dd858cba88?q=80&w=300" alt="Hot Tradicional">
+            <div class="item-info">
+                <div class="item-name">Hot Tradicional</div>
+                <div class="item-price">10 R$</div>
+            </div>
+        </div>
+
+        <div class="cardapio-item">
+            <img src="https://images.unsplash.com/photo-1541214113241-21578d2d9b62?q=80&w=300" alt="Hot Bacon">
+            <div class="item-info">
+                <div class="item-name">Hot Bacon</div>
                 <div class="item-price">14 R$</div>
+            </div>
+        </div>
+
+        <div class="cardapio-item">
+            <img src="https://images.unsplash.com/photo-1619740455993-9e612b1af08a?q=80&w=300" alt="Hot Frango">
+            <div class="item-info">
+                <div class="item-name">Hot Frango</div>
+                <div class="item-price">16 R$</div>
             </div>
         </div>
 
         <h2 class="section-title" id="pasteis">Pastéis</h2>
         
         <div class="cardapio-item">
-            <img src="https://images.unsplash.com/photo-1626074353765-517a681e40be?q=80&w=200&auto=format&fit=crop" alt="Pastel">
+            <img src="https://images.unsplash.com/photo-1626074353765-517a681e40be?q=80&w=300" alt="Carne">
             <div class="item-info">
                 <div class="item-name">Pastel de Carne</div>
                 <div class="item-price">10 R$</div>
             </div>
         </div>
 
+        <div class="cardapio-item">
+            <img src="https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?q=80&w=300" alt="Queijo">
+            <div class="item-info">
+                <div class="item-name">Pastel de Queijo</div>
+                <div class="item-price">10 R$</div>
+            </div>
+        </div>
+
+        <div class="cardapio-item">
+            <img src="https://images.unsplash.com/photo-1626074353765-517a681e40be?q=80&w=300" alt="Frango">
+            <div class="item-info">
+                <div class="item-name">Pastel de Frango</div>
+                <div class="item-price">12 R$</div>
+            </div>
+        </div>
+
         <h2 class="section-title" id="bebidas">Bebidas</h2>
         
         <div class="cardapio-item">
-            <img src="https://images.unsplash.com/photo-1622483767028-3f66f32aef97?q=80&w=200&auto=format&fit=crop" alt="Refri">
+            <img src="https://images.unsplash.com/photo-1622483767028-3f66f32aef97?q=80&w=300" alt="Refri Lata">
             <div class="item-info">
-                <div class="item-name">Refri Lata 350ml</div>
+                <div class="item-name">Refri Lata</div>
                 <div class="item-price">8 R$</div>
+            </div>
+        </div>
+
+        <div class="cardapio-item">
+            <img src="https://images.unsplash.com/photo-1527960471264-93ad93aba128?q=80&w=300" alt="Refri 1L">
+            <div class="item-info">
+                <div class="item-name">Refri Litro</div>
+                <div class="item-price">12 R$</div>
+            </div>
+        </div>
+
+        <div class="cardapio-item">
+            <img src="https://images.unsplash.com/photo-1629203851020-fdd49bb6520d?q=80&w=300" alt="Refri 2L">
+            <div class="item-info">
+                <div class="item-name">Refri 2 Litros</div>
+                <div class="item-price">16 R$</div>
+            </div>
+        </div>
+
+        <div class="cardapio-item">
+            <img src="https://images.unsplash.com/photo-1548839140-29a749e1cf3d?q=80&w=300" alt="Água">
+            <div class="item-info">
+                <div class="item-name">Água C/S Gás</div>
+                <div class="item-price">6 - 8 R$</div>
             </div>
         </div>
 
@@ -209,7 +313,7 @@
 
     <footer>
         <i class="fab fa-whatsapp"></i>
-        <div class="zap-text">Qualquer dúvida chame no zap (12) 12345-6789</div>
+        <div class="zap-text">Qualquer dúvida chame no zap (12) 12345 6789</div>
     </footer>
 
     <script>
