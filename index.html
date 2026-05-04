@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PR LANCHES - Cardápio Premium</title>
+    <title>PR LANCHES - Cardápio Final</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
@@ -17,15 +17,15 @@
             box-sizing: border-box;
         }
 
-        /* Estilo base para textos gerais */
         body { 
             background-color: #fff9e6;
             background-image: url("https://www.transparenttextures.com/patterns/food.png");
             padding-top: 90px;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            /* Fonte padrão para os itens do cardápio */
+            font-family: Arial, Helvetica, sans-serif;
         }
 
-        /* Cabeçalho */
+        /* CABEÇALHO */
         header {
             position: fixed;
             top: 0;
@@ -38,11 +38,11 @@
             align-items: center;
             padding: 0 30px;
             z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
         .menu-btn { font-size: 35px; cursor: pointer; color: #000; }
         
-        /* FONTE BONITA NO LOGO */
         .logo { 
             font-family: 'Pacifico', cursive; 
             font-size: 2.2rem; 
@@ -55,7 +55,7 @@
             object-fit: contain;
         }
 
-        /* Menu Lateral */
+        /* MENU LATERAL */
         aside {
             position: fixed;
             left: -280px;
@@ -74,7 +74,6 @@
 
         aside.active { left: 0; }
 
-        /* FONTE BONITA NO MENU */
         aside a {
             font-family: 'Montserrat', sans-serif;
             text-decoration: none;
@@ -82,7 +81,7 @@
             border: 2px solid #000;
             padding: 12px;
             text-align: center;
-            font-weight: 700;
+            font-weight: 800;
             text-transform: uppercase;
             font-size: 0.9rem;
             background: #fff;
@@ -91,14 +90,14 @@
 
         aside a:hover { background: #ffeb3b; transform: translateX(5px); }
 
-        /* Container do Cardápio */
+        /* CONTAINER */
         .container {
             max-width: 700px;
             margin: 0 auto;
             padding: 20px;
         }
 
-        /* FONTE BONITA NAS SEÇÕES */
+        /* TÍTULOS DE SEÇÃO */
         .section-title {
             font-family: 'Montserrat', sans-serif;
             background: #000;
@@ -113,7 +112,7 @@
             letter-spacing: 2px;
         }
 
-        /* Itens (Mantendo a fonte padrão conforme pedido) */
+        /* ITENS DO CARDÁPIO */
         .cardapio-item {
             display: flex;
             align-items: center;
@@ -131,14 +130,30 @@
             height: 120px;
             object-fit: cover;
             border-radius: 10px;
-            border: 2px solid #eee;
+            border: 1px solid #ddd;
+            background: #eee;
         }
 
         .item-info { flex-grow: 1; }
-        .item-name { font-size: 1.3rem; font-weight: bold; color: #1a1a1a; }
-        .item-price { font-size: 1.2rem; color: #d32f2f; font-weight: 900; margin-top: 8px; display: block;}
 
-        /* Rodapé WhatsApp */
+        /* Fonte padrão para itens (sem Montserrat/Pacifico) */
+        .item-name { 
+            font-size: 1.35rem; 
+            font-weight: bold; 
+            color: #1a1a1a; 
+            font-family: Arial, sans-serif; 
+        }
+
+        .item-price { 
+            font-size: 1.25rem; 
+            color: #d32f2f; 
+            font-weight: 900; 
+            margin-top: 8px; 
+            display: block;
+            font-family: Arial, sans-serif;
+        }
+
+        /* RODAPÉ */
         footer {
             margin: 60px auto 120px auto;
             max-width: 550px;
@@ -153,7 +168,7 @@
         }
 
         .fa-whatsapp { color: #25d366; font-size: 45px; }
-        .zap-text { font-size: 1.4rem; font-weight: bold; }
+        .zap-text { font-size: 1.3rem; font-weight: bold; font-family: Arial, sans-serif; }
 
         @media (max-width: 600px) {
             .cardapio-item { flex-direction: column; text-align: center; }
@@ -182,7 +197,7 @@
         <h2 class="section-title" id="entradas">Entradas</h2>
         
         <div class="cardapio-item">
-            <img src="https://images.unsplash.com/photo-1580476262798-bddd9f4b7369?q=80&w=300" alt="Peixe">
+            <img src="https://images.unsplash.com/photo-1598514982205-f36b96d1e8d4?q=80&w=400" alt="Peixe">
             <div class="item-info">
                 <div class="item-name">Peixe (400g)</div>
                 <span class="item-price">28 R$</span>
@@ -190,7 +205,7 @@
         </div>
 
         <div class="cardapio-item">
-            <img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?q=80&w=300" alt="Peixe">
+            <img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?q=80&w=400" alt="Peixe">
             <div class="item-info">
                 <div class="item-name">Peixe (700g)</div>
                 <span class="item-price">46 R$</span>
@@ -198,7 +213,7 @@
         </div>
 
         <div class="cardapio-item">
-            <img src="https://images.unsplash.com/photo-1576107232684-1279f390859f?q=80&w=300" alt="Batata">
+            <img src="https://images.unsplash.com/photo-1573015084245-51d99eead3bd?q=80&w=400" alt="Batata">
             <div class="item-info">
                 <div class="item-name">Batatas (250g)</div>
                 <span class="item-price">16 R$</span>
@@ -206,7 +221,7 @@
         </div>
 
         <div class="cardapio-item">
-            <img src="https://images.unsplash.com/photo-1630384060421-cb20d0e0649d?q=80&w=300" alt="Batata">
+            <img src="https://images.unsplash.com/photo-1630384060421-cb20d0e0649d?q=80&w=400" alt="Batata">
             <div class="item-info">
                 <div class="item-name">Batatas (450g)</div>
                 <span class="item-price">25 R$</span>
@@ -216,7 +231,7 @@
         <h2 class="section-title" id="hamburgueres">Hambúrgueres</h2>
         
         <div class="cardapio-item">
-            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=300" alt="X-Burguer">
+            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=400" alt="X-Burguer">
             <div class="item-info">
                 <div class="item-name">X-Burguer</div>
                 <span class="item-price">10 R$</span>
@@ -224,7 +239,7 @@
         </div>
 
         <div class="cardapio-item">
-            <img src="https://images.unsplash.com/photo-1553979459-d2229ba7433b?q=80&w=300" alt="X-Bacon">
+            <img src="https://images.unsplash.com/photo-1553979459-d2229ba7433b?q=80&w=400" alt="X-Bacon">
             <div class="item-info">
                 <div class="item-name">X-Bacon</div>
                 <span class="item-price">15 R$</span>
@@ -234,7 +249,7 @@
         <h2 class="section-title" id="hotdogs">Hot-Dogs</h2>
         
         <div class="cardapio-item">
-            <img src="https://images.unsplash.com/photo-1612392062631-94dd858cba88?q=80&w=300" alt="Hot Dog">
+            <img src="https://images.unsplash.com/photo-1541214113241-21578d2d9b62?q=80&w=400" alt="Hot Dog">
             <div class="item-info">
                 <div class="item-name">Hot Tradicional</div>
                 <span class="item-price">10 R$</span>
@@ -244,7 +259,7 @@
         <h2 class="section-title" id="pasteis">Pastéis</h2>
         
         <div class="cardapio-item">
-            <img src="https://images.unsplash.com/photo-1626074353765-517a681e40be?q=80&w=300" alt="Pastel">
+            <img src="https://images.unsplash.com/photo-1626074353765-517a681e40be?q=80&w=400" alt="Pastel">
             <div class="item-info">
                 <div class="item-name">Pastel de Carne</div>
                 <span class="item-price">10 R$</span>
@@ -252,7 +267,7 @@
         </div>
 
         <div class="cardapio-item">
-            <img src="https://images.unsplash.com/photo-1616070841244-7de1c0990a42?q=80&w=300" alt="Pastel">
+            <img src="https://images.unsplash.com/photo-1626074353765-517a681e40be?q=80&w=400" alt="Pastel de Frango">
             <div class="item-info">
                 <div class="item-name">Pastel de Frango</div>
                 <span class="item-price">12 R$</span>
@@ -262,7 +277,7 @@
         <h2 class="section-title" id="bebidas">Bebidas</h2>
         
         <div class="cardapio-item">
-            <img src="https://images.unsplash.com/photo-1596633606703-1da8019f6044?q=80&w=300" alt="Refri Lata">
+            <img src="https://images.unsplash.com/photo-1527960471264-93ad93aba128?q=80&w=400" alt="Refri Lata">
             <div class="item-info">
                 <div class="item-name">Refri Lata</div>
                 <span class="item-price">8 R$</span>
@@ -270,15 +285,15 @@
         </div>
 
         <div class="cardapio-item">
-            <img src="https://images.pizzahut.com.br/image/upload/f_auto,q_auto/v1/assets/products/refrigerante-15l.png" alt="Refri Litro">
+            <img src="https://images.unsplash.com/photo-1622483767028-3f66f32aef97?q=80&w=400" alt="Refri Litro">
             <div class="item-info">
-                <div class="item-name">Refri Litro / 1.5L</div>
-                <span class="item-price">12 R$</span>
+                <div class="item-name">Refri Litro / 2L</div>
+                <span class="item-price">12 R$ - 16 R$</span>
             </div>
         </div>
 
         <div class="cardapio-item">
-            <img src="https://images.unsplash.com/photo-1548839140-29a749e1cf3d?q=80&w=300" alt="Água">
+            <img src="https://images.unsplash.com/photo-1523362628745-0c100150b504?q=80&w=400" alt="Água">
             <div class="item-info">
                 <div class="item-name">Água Com/Sem Gás</div>
                 <span class="item-price">6 - 8 R$</span>
@@ -289,7 +304,7 @@
 
     <footer>
         <i class="fab fa-whatsapp"></i>
-        <div class="zap-text">Qualquer dúvida chame no zap (12) 12345 6789</div>
+        <div class="zap-text">Qualquer dúvida chame no zap (12) 12345-6789</div>
     </footer>
 
     <script>
