@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PR LANCHES - Cardápio Completo</title>
+    <title>PR LANCHES - Cardápio Final</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         html { scroll-behavior: smooth; }
@@ -12,13 +12,12 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
         }
 
         body { 
-            /* Fundo amarelo claro com padrão repetido */
             background-color: #fff9e6;
-            background-image: url("https://www.transparenttextures.com/patterns/food.png"); /* Padrão sutil de comida */
+            background-image: url("https://www.transparenttextures.com/patterns/food.png");
             padding-top: 90px;
         }
 
@@ -29,16 +28,15 @@
             width: 100%;
             height: 80px;
             background: white;
-            border-bottom: 3px solid #000;
+            border-bottom: 4px solid #000;
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 0 30px;
             z-index: 1000;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
-        .menu-btn { font-size: 35px; cursor: pointer; }
+        .menu-btn { font-size: 35px; cursor: pointer; color: #000; }
         .logo { font-size: 2rem; font-weight: bold; font-style: italic; letter-spacing: 2px; }
         
         .pizza-header {
@@ -47,20 +45,20 @@
             object-fit: contain;
         }
 
-        /* Menu Lateral Retrátil */
+        /* Menu Lateral */
         aside {
             position: fixed;
-            left: -260px;
+            left: -280px;
             top: 80px;
-            width: 250px;
+            width: 260px;
             height: calc(100% - 80px);
             background: #fff;
-            border-right: 3px solid #000;
+            border-right: 4px solid #000;
             transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             display: flex;
             flex-direction: column;
             padding: 20px;
-            gap: 12px;
+            gap: 15px;
             z-index: 999;
         }
 
@@ -74,10 +72,10 @@
             text-align: center;
             font-weight: bold;
             background: #fff;
-            transition: 0.2s;
+            transition: 0.3s;
         }
 
-        aside a:hover { background: #ffe082; transform: scale(1.05); }
+        aside a:hover { background: #ffeb3b; transform: translateX(5px); }
 
         /* Container do Cardápio */
         .container {
@@ -88,56 +86,60 @@
 
         .section-title {
             background: #000;
-            color: #fff;
-            padding: 12px;
+            color: #ffeb3b;
+            padding: 15px;
             margin: 50px 0 25px 0;
             text-transform: uppercase;
             text-align: center;
-            border-radius: 5px;
+            border-radius: 8px;
+            font-size: 1.5rem;
+            letter-spacing: 3px;
         }
 
-        /* Estilo dos Itens */
+        /* Card de Itens */
         .cardapio-item {
             display: flex;
             align-items: center;
             background: white;
-            border: 2px solid #000;
-            margin-bottom: 20px;
+            border: 3px solid #000;
+            margin-bottom: 25px;
             padding: 15px;
-            border-radius: 10px;
+            border-radius: 12px;
             gap: 20px;
-            box-shadow: 5px 5px 0px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
         }
 
+        .cardapio-item:hover { transform: scale(1.02); }
+
         .cardapio-item img {
-            width: 110px;
-            height: 110px;
+            width: 120px;
+            height: 120px;
             object-fit: cover;
-            border-radius: 8px;
-            border: 1px solid #ddd;
+            border-radius: 10px;
+            border: 2px solid #eee;
         }
 
         .item-info { flex-grow: 1; }
-        .item-name { font-size: 1.3rem; font-weight: bold; color: #333; }
-        .item-price { font-size: 1.2rem; color: #e67e22; font-weight: 900; margin-top: 8px; }
+        .item-name { font-size: 1.4rem; font-weight: bold; color: #1a1a1a; }
+        .item-price { font-size: 1.3rem; color: #d32f2f; font-weight: 900; margin-top: 10px; display: block;}
 
         /* Rodapé WhatsApp */
         footer {
-            margin: 60px auto;
-            max-width: 500px;
-            border: 3px solid #000;
+            margin: 60px auto 120px auto;
+            max-width: 550px;
+            border: 4px solid #000;
             padding: 20px;
             display: flex;
             justify-content: center;
             align-items: center;
             gap: 15px;
-            background: white;
+            background: #fff;
             border-radius: 50px;
-            margin-bottom: 100px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
 
-        .fa-whatsapp { color: #25d366; font-size: 40px; }
-        .zap-text { font-size: 1.3rem; font-weight: bold; }
+        .fa-whatsapp { color: #25d366; font-size: 45px; }
+        .zap-text { font-size: 1.4rem; font-weight: bold; }
 
         @media (max-width: 600px) {
             .cardapio-item { flex-direction: column; text-align: center; }
@@ -166,10 +168,10 @@
         <h2 class="section-title" id="entradas">Entradas</h2>
         
         <div class="cardapio-item">
-            <img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?q=80&w=300" alt="Peixe">
+            <img src="https://images.unsplash.com/photo-1580476262798-bddd9f4b7369?q=80&w=300" alt="Peixe">
             <div class="item-info">
                 <div class="item-name">Peixe (400g)</div>
-                <div class="item-price">28 R$</div>
+                <span class="item-price">28 R$</span>
             </div>
         </div>
 
@@ -177,15 +179,15 @@
             <img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?q=80&w=300" alt="Peixe">
             <div class="item-info">
                 <div class="item-name">Peixe (700g)</div>
-                <div class="item-price">46 R$</div>
+                <span class="item-price">46 R$</span>
             </div>
         </div>
 
         <div class="cardapio-item">
-            <img src="https://images.unsplash.com/photo-1630384060421-cb20d0e0649d?q=80&w=300" alt="Batata">
+            <img src="https://images.unsplash.com/photo-1573015084245-51d99eead3bd?q=80&w=300" alt="Batata">
             <div class="item-info">
                 <div class="item-name">Batatas (250g)</div>
-                <div class="item-price">16 R$</div>
+                <span class="item-price">16 R$</span>
             </div>
         </div>
 
@@ -193,7 +195,7 @@
             <img src="https://images.unsplash.com/photo-1630384060421-cb20d0e0649d?q=80&w=300" alt="Batata">
             <div class="item-info">
                 <div class="item-name">Batatas (450g)</div>
-                <div class="item-price">25 R$</div>
+                <span class="item-price">25 R$</span>
             </div>
         </div>
 
@@ -203,7 +205,7 @@
             <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=300" alt="X-Burguer">
             <div class="item-info">
                 <div class="item-name">X-Burguer</div>
-                <div class="item-price">10 R$</div>
+                <span class="item-price">10 R$</span>
             </div>
         </div>
 
@@ -211,7 +213,7 @@
             <img src="https://images.unsplash.com/photo-1553979459-d2229ba7433b?q=80&w=300" alt="X-Bacon">
             <div class="item-info">
                 <div class="item-name">X-Bacon</div>
-                <div class="item-price">15 R$</div>
+                <span class="item-price">15 R$</span>
             </div>
         </div>
 
@@ -219,7 +221,7 @@
             <img src="https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?q=80&w=300" alt="X-Salada">
             <div class="item-info">
                 <div class="item-name">X-Salada</div>
-                <div class="item-price">12 R$</div>
+                <span class="item-price">12 R$</span>
             </div>
         </div>
 
@@ -229,7 +231,7 @@
             <img src="https://images.unsplash.com/photo-1612392062631-94dd858cba88?q=80&w=300" alt="Hot Tradicional">
             <div class="item-info">
                 <div class="item-name">Hot Tradicional</div>
-                <div class="item-price">10 R$</div>
+                <span class="item-price">10 R$</span>
             </div>
         </div>
 
@@ -237,7 +239,7 @@
             <img src="https://images.unsplash.com/photo-1541214113241-21578d2d9b62?q=80&w=300" alt="Hot Bacon">
             <div class="item-info">
                 <div class="item-name">Hot Bacon</div>
-                <div class="item-price">14 R$</div>
+                <span class="item-price">14 R$</span>
             </div>
         </div>
 
@@ -245,67 +247,67 @@
             <img src="https://images.unsplash.com/photo-1619740455993-9e612b1af08a?q=80&w=300" alt="Hot Frango">
             <div class="item-info">
                 <div class="item-name">Hot Frango</div>
-                <div class="item-price">16 R$</div>
+                <span class="item-price">16 R$</span>
             </div>
         </div>
 
         <h2 class="section-title" id="pasteis">Pastéis</h2>
         
         <div class="cardapio-item">
-            <img src="https://images.unsplash.com/photo-1626074353765-517a681e40be?q=80&w=300" alt="Carne">
+            <img src="https://images.unsplash.com/photo-1626074353765-517a681e40be?q=80&w=300" alt="Pastel">
             <div class="item-info">
                 <div class="item-name">Pastel de Carne</div>
-                <div class="item-price">10 R$</div>
+                <span class="item-price">10 R$</span>
             </div>
         </div>
 
         <div class="cardapio-item">
-            <img src="https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?q=80&w=300" alt="Queijo">
+            <img src="https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?q=80&w=300" alt="Pastel">
             <div class="item-info">
                 <div class="item-name">Pastel de Queijo</div>
-                <div class="item-price">10 R$</div>
+                <span class="item-price">10 R$</span>
             </div>
         </div>
 
         <div class="cardapio-item">
-            <img src="https://images.unsplash.com/photo-1626074353765-517a681e40be?q=80&w=300" alt="Frango">
+            <img src="https://images.unsplash.com/photo-1644332857850-848e02d098e9?q=80&w=300" alt="Pastel">
             <div class="item-info">
                 <div class="item-name">Pastel de Frango</div>
-                <div class="item-price">12 R$</div>
+                <span class="item-price">12 R$</span>
             </div>
         </div>
 
         <h2 class="section-title" id="bebidas">Bebidas</h2>
         
         <div class="cardapio-item">
-            <img src="https://images.unsplash.com/photo-1622483767028-3f66f32aef97?q=80&w=300" alt="Refri Lata">
+            <img src="https://images.unsplash.com/photo-1561758033-d89a9ad46330?q=80&w=300" alt="Refri Lata">
             <div class="item-info">
                 <div class="item-name">Refri Lata</div>
-                <div class="item-price">8 R$</div>
+                <span class="item-price">8 R$</span>
             </div>
         </div>
 
         <div class="cardapio-item">
-            <img src="https://images.unsplash.com/photo-1527960471264-93ad93aba128?q=80&w=300" alt="Refri 1L">
+            <img src="https://images.unsplash.com/photo-1624517452488-04869289c4ca?q=80&w=300" alt="Refri Litro">
             <div class="item-info">
                 <div class="item-name">Refri Litro</div>
-                <div class="item-price">12 R$</div>
+                <span class="item-price">12 R$</span>
             </div>
         </div>
 
         <div class="cardapio-item">
-            <img src="https://images.unsplash.com/photo-1629203851020-fdd49bb6520d?q=80&w=300" alt="Refri 2L">
+            <img src="https://images.unsplash.com/photo-1622483767028-3f66f32aef97?q=80&w=300" alt="Refri 2 Litros">
             <div class="item-info">
                 <div class="item-name">Refri 2 Litros</div>
-                <div class="item-price">16 R$</div>
+                <span class="item-price">16 R$</span>
             </div>
         </div>
 
         <div class="cardapio-item">
-            <img src="https://images.unsplash.com/photo-1548839140-29a749e1cf3d?q=80&w=300" alt="Água">
+            <img src="https://images.unsplash.com/photo-1523362628745-0c100150b504?q=80&w=300" alt="Água">
             <div class="item-info">
-                <div class="item-name">Água C/S Gás</div>
-                <div class="item-price">6 - 8 R$</div>
+                <div class="item-name">Água Com/Sem Gás</div>
+                <span class="item-price">6 - 8 R$</span>
             </div>
         </div>
 
